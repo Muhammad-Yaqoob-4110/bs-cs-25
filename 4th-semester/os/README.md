@@ -1,0 +1,1 @@
+Both theory and lab was taught by Maam Abqa Javed.

@@ -1,0 +1,1 @@
+This course was taught by Mr. Nazeez Ul Haq.

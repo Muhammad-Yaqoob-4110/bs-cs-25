@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main(int argc, char* argv[]) {
+    FILE *inputFile, *outputFile;
+    char ch;
+
+    // Check if the number of command line arguments is correct
+    if (argc != 3) {
+        printf("Usage: %s input_file output_file\n", argv[0]);
+        return 1;
+    }
+
+    // Open the input file in read mode
+    inputFile = fopen(argv[1], "r");
+
+    if (inputFile == NULL) {
+        printf("Unable to open input file \"%s\"\n", argv[1]);
+        return 1;
+    }
+
+    // Open the output file in write mode
+    outputFile = fopen(argv[2], "w");
+
+    if (outputFile == NULL) {
+        printf("Unable to open output file \"%s\"\n", argv[2]);
+        return 1;
+    }
+
+    // Copy the contents of the input file to the output file
+    while ((ch = fgetc(inputFile)) != EOF) {
+        fputc(ch, outputFile);
+    }
+
+    // Close the input and output files
+    fclose(inputFile);
+    fclose(outputFile);
+
+    printf("File \"%s\" has been copied to \"%s\".\n", argv[1], argv[2]);
+
+    return 0;
+}

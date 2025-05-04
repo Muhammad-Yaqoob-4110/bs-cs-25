@@ -1,0 +1,56 @@
+#include<stdio.h>
+
+struct process {
+    int pid;
+    int arrival_time;
+    int burst_time;
+    int remaining_time;
+    int waiting_time;
+    int turnaround_time;
+    int completion_time;
+};
+
+int main() {
+    int n, tq, i, j, time = 0, sum_bt = 0, sum_tat = 0, sum_wt = 0;
+    float avg_tat, avg_wt;
+    printf("Enter the number of processes: ");
+    scanf("%d", &n);
+    printf("Enter the time quantum: ");
+    scanf("%d", &tq);
+    struct process p[n];
+    for(i=0; i<n; i++) {
+        printf("Enter arrival time and burst time for process %d: ", i+1);
+        scanf("%d %d", &p[i].arrival_time, &p[i].burst_time);
+        p[i].pid = i+1;
+        p[i].remaining_time = p[i].burst_time;
+        sum_bt += p[i].burst_time;
+    }
+    while(sum_bt > 0) {
+        for(i=0; i<n; i++) {
+            if(p[i].remaining_time > 0) {
+                if(p[i].remaining_time <= tq) {
+                    time += p[i].remaining_time;
+                    p[i].completion_time = time;
+                    sum_bt -= p[i].burst_time;
+                    p[i].turnaround_time = p[i].completion_time - p[i].arrival_time;
+                    p[i].waiting_time = p[i].turnaround_time - p[i].burst_time;
+                    p[i].remaining_time = 0;
+                }
+                else {
+                    time += tq;
+                    p[i].remaining_time -= tq;
+                }
+            }
+        }
+    }
+    printf("\nProcess\tAT\tBT\tCT\tTAT\tWT\n");
+    for(i=0; i<n; i++) {
+        printf("P%d\t%d\t%d\t%d\t%d\t%d\n", p[i].pid, p[i].arrival_time, p[i].burst_time, p[i].completion_time, p[i].turnaround_time, p[i].waiting_time);
+        sum_tat += p[i].turnaround_time;
+        sum_wt += p[i].waiting_time;
+    }
+    avg_tat = (float)sum_tat/n;
+    avg_wt = (float)sum_wt/n;
+    printf("\nAverage Turnaround Time: %.2f\nAverage Waiting Time: %.2f\n", avg_tat, avg_wt);
+    return 0;
+}

@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <time.h>
+#include <sys/ipc.h>
+#include <sys/msg.h>
+
+#define MSG_TYPE 1
+
+struct msg_buffer {
+    long msg_type;
+    char msg_text[100];
+};
+
+int main() {
+    key_t key;
+    int msg_id;
+    pid_t pid;
+    struct msg_buffer msg;
+
+    // Create a message queue
+    key = ftok("server.c", 'A');
+    msg_id = msgget(key, 0666 | IPC_CREAT);
+    if (msg_id == -1) {
+        perror("msgget");
+        exit(EXIT_FAILURE);
+    }
+
+    // Fork a child process to act as the consumer
+    pid = fork();
+    if (pid == -1) {
+        perror("fork");
+        exit(EXIT_FAILURE);
+    }
+
+    if (pid == 0) {
+        // Child process - the consumer
+        while (1) {
+            // Receive a message from the queue
+            if (msgrcv(msg_id, &msg, sizeof(msg), MSG_TYPE, 0) == -1) {
+                perror("msgrcv");
+                exit(EXIT_FAILURE);
+            }
+
+            // Print the message
+            printf("Received message: %s\n", msg.msg_text);
+        }
+    } else {
+        // Parent process - the producer
+        while (1) {
+            // Generate the date string
+            time_t now = time(NULL);
+            char *date_str = ctime(&now);
+            date_str[strlen(date_str) - 1] = '\0'; // remove newline character
+
+            // Send the date string as a message to the queue
+            msg.msg_type = MSG_TYPE;
+            strcpy(msg.msg_text, date_str);
+            if (msgsnd(msg_id, &msg, sizeof(msg), 0) == -1) {
+                perror("msgsnd");
+                exit(EXIT_FAILURE);
+            }
+
+            sleep(1); // wait for one second before sending the next message
+        }
+    }
+
+    return 0;
+}

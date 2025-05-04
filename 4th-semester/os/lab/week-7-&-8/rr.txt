@@ -1,0 +1,82 @@
+#include <stdio.h>
+
+#define MAX 10
+
+struct Process {
+    int pid;            // process ID
+    int arrival_time;   // arrival time of the process
+    int burst_time;     // burst time of the process
+    int remaining_time; // remaining time of the process
+};
+
+int main() {
+    int n;  // number of processes
+    int tq; // time quantum
+    struct Process p[MAX];
+
+    // get input
+    printf("Enter the number of processes: ");
+    scanf("%d", &n);
+
+    printf("Enter the time quantum: ");
+    scanf("%d", &tq);
+
+    for (int i = 0; i < n; i++) {
+        printf("Enter the arrival time and burst time of process %d: ", i + 1);
+        scanf("%d %d", &p[i].arrival_time, &p[i].burst_time);
+        p[i].remaining_time = p[i].burst_time; // set remaining time equal to burst time initially
+        p[i].pid = i + 1;
+    }
+
+    int time = 0; // current time
+    int wt[MAX] = {0}; // waiting time of each process
+    int tat[MAX] = {0}; // turnaround time of each process
+    int total_wt = 0; // total waiting time
+    int total_tat = 0; // total turnaround time
+
+    while (1) {
+        int done = 1; // flag to check if all processes are done
+
+        for (int i = 0; i < n; i++) {
+            if (p[i].remaining_time > 0) {
+                done = 0; // at least one process is not done yet
+
+                if (p[i].remaining_time > tq) { // process still needs more time
+                    time += tq;
+                    p[i].remaining_time -= tq;
+                }
+                else { // process is done
+                    time += p[i].remaining_time;
+                    tat[i] = time - p[i].arrival_time; // calculate turnaround time
+                    wt[i] = tat[i] - p[i].burst_time; // calculate waiting time
+                    p[i].remaining_time = 0; // set remaining time to 0
+                }
+            }
+        }
+
+        if (done) // all processes are done
+            break;
+    }
+
+    // calculate total waiting time and total turnaround time
+    for (int i = 0; i < n; i++) {
+        total_wt += wt[i];
+        total_tat += tat[i];
+    }
+
+    // calculate average waiting time and average turnaround time
+    float avg_wt = (float) total_wt / n;
+    float avg_tat = (float) total_tat / n;
+
+    // print results
+    printf("\nPID\tAT\tBT\tWT\tTAT\n");
+
+    for (int i = 0; i < n; i++) {
+        printf("%d\t%d\t%d\t%d\t%d\n", p[i].pid, p[i].arrival_time, p[i].burst_time, wt[i], tat[i]);
+    }
+
+    printf("Average waiting time: %.2f\n", avg_wt);
+    printf("Average turnaround time: %.2f\n", avg_tat);
+
+    return 0;
+}

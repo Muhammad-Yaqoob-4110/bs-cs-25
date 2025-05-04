@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+#define MAX_BLOCKS 100
+#define MAX_PROCESSES 100
+
+int main() {
+    int blocks[MAX_BLOCKS], processes[MAX_PROCESSES];
+    int n_blocks, n_processes;
+    int i, j;
+
+    printf("Enter the number of memory blocks: ");
+    scanf("%d", &n_blocks);
+
+    printf("Enter the size of each memory block:\n");
+    for (i = 0; i < n_blocks; i++) {
+        scanf("%d", &blocks[i]);
+    }
+
+    printf("Enter the number of processes: ");
+    scanf("%d", &n_processes);
+
+    printf("Enter the size of each process:\n");
+    for (i = 0; i < n_processes; i++) {
+        scanf("%d", &processes[i]);
+    }
+
+    int allocation[n_processes];
+
+    for (i = 0; i < n_processes; i++) {
+        allocation[i] = -1;
+        int best_block = -1;
+
+        for (j = 0; j < n_blocks; j++) {
+            if (blocks[j] >= processes[i]) {
+                if (best_block == -1) {
+                    best_block = j;
+                } else if (blocks[j] < blocks[best_block]) {
+                    best_block = j;
+                }
+            }
+        }
+
+        if (best_block != -1) {
+            allocation[i] = best_block;
+            blocks[best_block] -= processes[i];
+        }
+    }
+
+    printf("\nProcess No.\tProcess Size\tBlock No.\n");
+    for (i = 0; i < n_processes; i++) {
+        printf("   %d\t\t   %d\t\t", i+1, processes[i]);
+        if (allocation[i] != -1) {
+            printf("%d\n", allocation[i]+1);
+        } else {
+            printf("Not Allocated\n");
+        }
+    }
+
+    return 0;
+}

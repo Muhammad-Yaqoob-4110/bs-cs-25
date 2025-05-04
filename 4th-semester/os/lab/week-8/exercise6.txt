@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <unistd.h>
+#include <sys/msg.h>
+#include <sys/types.h>
+#include <sys/ipc.h>
+
+#define MSG_TYPE 1
+
+struct message {
+    long mtype; // message type
+    char mtext[80]; // message text
+};
+
+int main() {
+    key_t key = ftok("date-time-server", 'A');
+    int msgid = msgget(key, IPC_CREAT | 0666);
+    if (msgid == -1) {
+        perror("msgget");
+        exit(EXIT_FAILURE);
+    }
+    pid_t pid = fork();
+    if (pid == -1) {
+        perror("fork");
+        exit(EXIT_FAILURE);
+    } else if (pid == 0) { // child process: consumer
+        while (1) {
+            struct message msg;
+            ssize_t n = msgrcv(msgid, &msg, sizeof(msg.mtext), MSG_TYPE, 0);
+            if (n == -1) {
+                perror("msgrcv");
+                exit(EXIT_FAILURE);
+            }
+            if (strcmp(msg.mtext, "quit") == 0) {
+                printf("Terminating child process\n");
+                break;
+            }
+            printf("Received message: %s\n", msg.mtext);
+        }
+    } else { // parent process: producer
+        while (1) {
+            time_t t = time(NULL);
+            struct tm *tm = localtime(&t);
+            char buf[80];
+            strftime(buf, sizeof(buf), "%c", tm);
+            struct message msg;
+            msg.mtype = MSG_TYPE;
+            strncpy(msg.mtext, buf, sizeof(msg.mtext));
+            int ret = msgsnd(msgid, &msg, sizeof(msg.mtext), 0);
+            if (ret == -1) {
+                perror("msgsnd");
+                exit(EXIT_FAILURE);
+            }
+            sleep(1);
+        }
+        struct message msg;
+        msg.mtype = MSG_TYPE;
+        strcpy(msg.mtext, "quit");
+        int ret = msgsnd(msgid, &msg, sizeof(msg.mtext), 0);
+        if (ret == -1) {
+            perror("msgsnd");
+            exit(EXIT_FAILURE);
+        }
+        wait(NULL); // wait for child process to terminate
+        msgctl(msgid, IPC_RMID, NULL); // delete message queue
+    }
+    return 0;
+}
