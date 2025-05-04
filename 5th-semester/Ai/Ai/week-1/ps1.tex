@@ -1,0 +1,467 @@
+\documentclass{article}
+
+%Page format
+\usepackage{pdfpages}
+\usepackage{fancyhdr}
+\usepackage[margin=1in]{geometry}
+
+%Math packages and custom commands
+\usepackage{algpseudocode}
+\usepackage{amsthm}
+\usepackage{framed}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{mathtools,amsthm}
+\usepackage{enumitem,amssymb}
+\newtheoremstyle{case}{}{}{}{}{}{:}{ }{}
+\theoremstyle{case}
+\newtheorem{case}{Case}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\Var}{\text{Var}}
+\DeclareMathOperator{\Cov}{\text{Cov}}
+\newcommand{\bvec}[1]{\mathbf{#1}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\norm}[2][2]{\| #2\|_{#1}}
+
+\definecolor{shadecolor}{gray}{0.9}
+
+\theoremstyle{definition}
+\newtheorem*{answer}{Answer}
+\newcommand{\note}[1]{\noindent{[\textbf{NOTE:} #1]}}
+\newcommand{\hint}[1]{\noindent{[\textbf{HINT:} #1]}}
+\newcommand{\recall}[1]{\noindent{[\textbf{RECALL:} #1]}}
+\newcommand{\expect}[1]{\noindent{[\textbf{What we expect:} #1]}}
+\newcommand{\mysolution}[1]{\noindent{\begin{shaded}\textbf{Your Solution:}\ #1 \end{shaded}}}
+
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+\hspace{-2.5pt}}
+\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+
+
+\title{\textbf{CS371 Fall 2023: Artificial Intelligence: \\Homework 1: Foundations}}
+\date{}
+
+\chead{Foundations}
+\rhead{\today}
+\lfoot{}
+\cfoot{CS371: Artificial Intelligence ---- Fall 2023}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\pagestyle{fancy}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+\begin{tabular}{rl}
+Registration Number: & [2021-CS-118] \\
+Name: & [Muhammad Yaqoob] \\
+\end{tabular}
+\end{center}
+
+\section*{Problem 1: Optimization and probability}
+
+In this class, we will cast a lot of AI problems as optimization problems, that is, finding the best solution in a rigorous mathematical sense.
+At the same time, we must be adroit at coping with uncertainty in the world, and for that, we appeal to tools from probability.
+
+\begin{enumerate}[label=\alph*.]
+    \item
+    Let $x_1, \dots, x_n$ be real numbers representing positions on a number line.
+    Let $w_1, \dots, w_n$ be positive real numbers representing the importance of each of these positions.
+    Consider the quadratic function: $f(\theta) = \sum_{i=1}^n w_i (\theta - x_i)^2$. Note that $\theta$ here is a scalar.
+    What value of $\theta$ minimizes $f(\theta)$? Show that the optimum you find is indeed a minimum. What
+    problematic issues could arise if some of the $w_i$'s are negative? \\
+    \note{You can think about this problem as trying to find the point $\theta$ that's not too far away from the $x_i$'s. Over time, hopefully you'll appreciate how nice quadratic functions are to minimize.}
+    
+    \expect{An expression for the value of $\theta$ that minimizes $f(\theta)$ and how you got it. A short calculation/argument to show that it is a minimum. 1-2 sentences describing a problem that could arise if some of the $w_i$'s are negative.}
+    \mysolution{
+        To find the value of $\theta$ that minimizes the quadratic function by taking the derivative of $f$ with respect to $\theta$
+\[
+f'(\theta) = \frac{d}{d\theta}\left(\sum_{i=1}^{n} w_i(\theta - x_i)^2\right)
+\]
+
+
+
+\[
+f'(\theta) = \sum_{i=1}^{n} 2w_i(\theta - x_i)
+\]
+
+Now, let's set this derivative equal to zero to find the critical points:
+
+\[
+2\sum_{i=1}^{n} w_i(\theta - x_i) = 0
+\]
+
+
+\[
+\sum_{i=1}^{n} w_i(\theta - x_i) = 0
+\]
+
+
+\[
+\sum_{i=1}^{n} w_i\theta - \sum_{i=1}^{n} w_ix_i = 0
+\]
+
+\[
+\theta\sum_{i=1}^{n} w_i = \sum_{i=1}^{n} w_ix_i
+\]
+
+\[
+\theta = \frac{\sum_{i=1}^{n} w_ix_i}{\sum_{i=1}^{n} w_i}
+\]
+
+This is the value of $\theta$ that minimizes $f(\theta)$.
+
+
+    }
+
+    \item
+    In this class, there will be a lot of sums and maxes.
+    Let's see what happens if we switch the order.
+    Let $f(\mathbf x) = \max_{s \in [-1,1]} \sum_{i=1}^d s x_i$
+    and $g(\mathbf x) = \sum_{i=1}^d \max_{s_i \in [-1,1]} s_i x_i$,
+    where $\mathbf x = (x_1, \dots, x_d) \in \mathbb{R}^d$ is a real vector
+    and $[-1,1]$ means the closed interval from $-1$ to $1$.
+    Which of $f(\mathbf x) \le g(\mathbf x)$, $f(\mathbf x) = g(\mathbf x)$, or $f(\mathbf x) \ge g(\mathbf x)$ is true for
+    all $\mathbf x$?
+    Prove it.\\
+    \hint{You may find it helpful to refactor the expressions so that they are maximizing the same quantity over different sized sets.}
+    
+    \expect{A short (3-5) line/sentence proof. You should use mathematical notation in your proof, but can also make your argument in words.}
+    \mysolution{
+       \par \(f(x)\) is given as:
+
+\[f(x) = \max_{s \in [-1,1]} \sum_{i=1}^{d} s x_i\]
+
+And \(g(x)\) is given as:
+
+\[g(x) = \sum_{i=1}^{d} \max_{s_i \in [-1,1]} s_i x_i\]
+Now, imagine we have a list of numbers: \([-2, 5, -3, 1, 4]\).
+
+Let's calculate \(f(x)\) and \(g(x)\) for this list:
+\[
+f(x) = \max_{s \in [-1,1]} (-2s + 5s - 3s + 1s + 4s) = \max_{s \in [-1,1]} (5s) = 5
+\]
+
+For \(g(x)\), we find the maximum value we can get by choosing \(s_i\) from \([-1, 1]\) for each number and then adding them up:
+
+\[
+g(x) = (-2 \cdot 1) + (5 \cdot 1) + (-3 \cdot 1) + (1 \cdot 1) + (4 \cdot 1) = -2 + 5 - 3 + 1 + 4 = 5
+\]
+
+
+
+    Therefore, we can conclude that \(f(x) = g(x)\) for all \(x\).
+
+    }    
+    \item
+    Suppose you repeatedly roll a fair six-sided die until you roll a $1$ or a $2$ (and then you stop).
+    Every time you roll a $3$, you lose $a$ points, and every time you roll a $6$, you win $b$ points. You do not win
+    or lose any points if you roll a $4$ or a $5$.
+    What is the expected number of points (as a function of $a$ and $b$) you will have when you stop? \\
+    \hint{You will find it helpful to define a recurrence. If you define $V$ as the expected number of points you get from playing the game, what happens if you roll a $3$? You lose $a$ points and then get to play again. What about the other cases? Can you write this as a recurrence?}
+    
+    \expect{A recurrence to represent the problem and the resulting expression from solving the recurrence (no more than 1-2 lines).}
+    \mysolution{
+        As it is given in the problem statement:
+
+If we roll a 1 or a 2 (with probability \(2/6 = 1/3\)), we stop playing, and our expected points are 0.
+
+If we roll a 3 (with probability \(1/6\)), we lose \(a\) points, and then we get to play again. So, out expected points after rolling a 3 are \(-a + V\).
+
+If we roll a 4 or a 5 (with probability \(2/6 = 1/3\)), we neither gain nor lose points, and we get to play again. So, out expected points remain \(V\).
+
+If we roll a 6 (with probability \(1/6\)), we win \(b\) points, and then we get to play again. So, out expected points after rolling a 6 are \(b + V\).
+
+Now, we can write  for \(V\):
+
+\[
+V = \frac{1}{3} \cdot 0 + \frac{1}{6} \cdot (-a + V) + \frac{1}{3} \cdot V + \frac{1}{6} \cdot (b + V)
+\]
+
+
+\[
+V = \frac{1}{6} \cdot (-a + V) + \frac{1}{3} \cdot V + \frac{1}{6} \cdot (b + V)
+\]
+
+
+\[
+V = \frac{1}{6} \cdot (-a + V) + \frac{1}{3} \cdot V + \frac{1}{6} \cdot (b + V)
+\]
+
+
+\[
+6V = -a + V + 2V + b + V
+\]
+
+
+\[
+6V = -a + 4V + b
+\]
+
+
+\[
+6V - 4V = -a + b
+\]
+
+
+\[
+2V = -a + b
+\]
+
+
+\[
+V = \frac{-a + b}{2}
+\]
+
+
+    }
+    \item
+    Suppose the probability of a coin turning up heads is $p$ (where $0 < p < 1$),
+    and we flip it $6$ times and get $\{ \text{T}, \text{H}, \text{H}, \text{H}, \text{T} , \text{H} \}$.
+    We know the probability (likelihood) of obtaining this
+    sequence is $L(p) = (1-p) p p p (1-p) p = p^4(1-p)^2$.
+    What value of $p$ maximizes $L(p)$?
+    Prove/Show that this value of $p$ maximizes $L(p)$.
+    What is an intuitive interpretation of this value of $p$? \\
+    \hint{Consider taking the derivative of $\log L(p)$. You can also directly take the derivative of $L(p)$, but it is cleaner and more natural to differentiate $\log L(p)$. You can verify for yourself that the value of $p$ which maximizes $\log L(p)$ must also maximize $L(p)$ (you are not required to prove this in your solution).}
+    
+    \expect{The value of $p$ that maximizes $L(p)$ and the work/calculation used to solve for it. Note that you must prove/show that it is a maximum. A 1-sentence intuitive interpretation of the value of $p$.}
+    \mysolution{
+         To find the value of \(p\) that maximizes the function by taking the derivative of function with respect to \(p\)
+
+\[
+\frac{d}{dp}\ln(L(p)) = \frac{d}{dp}\left(4\ln(p) + 2\ln(1 - p)\right)
+\]
+
+\[
+\frac{d}{dp}\ln(L(p)) = \frac{4}{p} - \frac{2}{1 - p}
+\]
+
+\[
+\frac{4}{p} - \frac{2}{1 - p} = 0
+\]
+
+\[
+\frac{4}{p} = \frac{2}{1 - p}
+\]
+
+\[
+4(1 - p) = 2p
+\]
+
+\[
+4 - 4p = 2p
+\]
+
+
+\[
+4 = 6p
+\]
+
+
+\[
+p = \frac{2}{3}
+\]
+
+
+    }
+    \item
+    Now for a little bit of practice manipulating conditional probabilities. Suppose that $A$ and $B$ are two events such that $P(A|B) = P(B|A)$. We also know that $P(A \cup B) = \frac{1}{2}$ and $P(A \cap B) > 0$. Prove that $P(A) > \frac{1}{4}$. 
+
+    \hint{Note that $A$ and $B$ are not necessarily mutually exclusive. Consider how we can relate $P(A \cup B)$ and $P(A \cap B)$.}
+
+    \expect{A short ($\sim$ 5 line) proof/derivation.}
+
+    \mysolution{
+        Given:
+\begin{enumerate}
+  \item $P(A|B) = P(B|A)$
+  \item $P(A \cup B) = \frac{1}{2}$
+  \item $P(A \cap B) > 0$
+\end{enumerate}
+
+We want to prove that $P(A) > \frac{1}{4}$.
+
+We know that:
+\begin{align*}
+  P(A \cup B) &= P(A) + P(B) - P(A \cap B) \\
+  \text{Since } P(A|B) &= P(B|A), \text{ we can write:} \\
+  P(A) + P(B) - P(A \cap B) &= P(A) + P(A) - P(A \cap B) \\
+  &= 2P(A) - P(A \cap B) = \frac{1}{2}
+\end{align*}
+
+\begin{align*}
+  2P(A) &= \frac{1}{2} + P(A \cap B) \\
+  P(A) &= \frac{\frac{1}{2} + P(A \cap B)}{2}
+\end{align*}
+
+\[
+P(A) > \frac{\frac{1}{2}}{2} = \frac{1}{4}
+\]
+
+So, it's proved that $P(A) > \frac{1}{4}$.
+
+    }
+    
+    \item
+    Let's practice taking gradients,
+    which is a key operation for being able to optimize continuous functions.
+    For $\mathbf w \in \mathbb R^d$ (represented as a column vector), and constants $\mathbf a_i, \mathbf b_j \in
+    \mathbb R^d$ (also represented as column vectors), $\lambda \in \mathbb R$, and a positive integer $n$, define
+    the scalar-valued function
+    $$f(\mathbf w) = \Bigg( \sum_{i=1}^n \sum_{j=1}^n (\mathbf a_i^\top \mathbf w - \mathbf b_j^\top \mathbf w)^2 \Bigg) + \frac{\lambda}{2}
+    \|\mathbf w\|_2^2,$$
+    where the vector is $\mathbf w = (w_1, \dots, w_d)^\top$ and $\|\mathbf w\|_2 = \sqrt{\sum_{k=1}^d w_k^2} = \sqrt{{\mathbf w}^T {\mathbf w}}$ is
+    known as the $L_2$ norm.
+    Compute the gradient $\nabla f(\mathbf w)$. \\
+    \recall{The gradient is a $d$-dimensional vector of the partial derivatives with respect to each $w_i$:
+        $$\nabla f(\mathbf w) = \left(\frac{\partial f(\mathbf w)}{\partial w_1}, \dots \frac{\partial f(\mathbf
+        w)}{\partial w_d}\right)^\top.$$
+    If you're not comfortable with vector calculus, first warm up by working out this problem using scalars in
+    place of vectors and derivatives in place of gradients.
+    Not everything for scalars goes through for vectors, but the two should at least be consistent with each other
+    (when $d=1$).
+    Do not write out summations over dimensions, because that gets tedious.}
+    
+    \expect{An expression for the gradient and the work used to derive it. ($\sim$ 5 lines). No need to expand out terms unnecessarily; try to write the final answer compactly.}
+    \mysolution{
+       Given function:
+\[ f(w) = \sum_{i=1}^{n} \sum_{j=1}^{n} \left( (a_i^\top w - b_j^\top w)^2 \right) + \frac{\lambda}{2} \|w\|_2^2 \]
+
+
+We need to find the gradient \(\nabla f(w)\), which is a partial derivatives with respect to each component \(w_i\) of \(w\).
+
+\[ \frac{\partial}{\partial w_i} \left( \sum_{i=1}^{n} \sum_{j=1}^{n} \left( (a_i^\top w - b_j^\top w)^2 \right) \right) \]
+
+\begin{center}
+$2 \sum_{i=1}^{n} \sum_{j=1}^{n} \left( (a_i^\top w - b_j^\top w)(a_i - b_j) \right)_i$
+\end{center}
+
+
+Next, we need to compute the derivative of the remaining term with respect to \(w_i\).
+\[ \frac{\lambda}{2} \|w\|_2^2 \]
+
+   \[ \frac{d}{dw_i}\left(\frac{\lambda}{2} \|w\|_2^2\right) = \frac{\lambda}{2} \frac{d}{dw_i}(\|w\|_2^2) \]
+Since:
+   \[ \|w\|_2^2 = \sum_{j=1}^{d} w_j^2 \]
+
+   So,
+   \[ \frac{d}{dw_i}(\|w\|_2^2) = \frac{d}{dw_i}\left(\sum_{j=1}^{d} w_j^2\right) = 2w_i \]
+
+
+Combining the derivatives from both terms, we get:
+\[
+\frac{\partial f(w)}{\partial w_i} = 2 \sum_{i=1}^{n} \sum_{j=1}^{n} \left( (a_i^\top w - b_j^\top w)(a_i - b_j) \right)_i + \lambda w_i
+\]
+
+Now, we can represent the entire gradient vector \(\nabla f(w)\) as:
+
+\[
+
+\nabla f(w) = \begin{bmatrix}
+2 \sum_{i=1}^{n} \sum_{j=1}^{n} \left( (a_i^\top w - b_j^\top w)(a_i - b_j) \right)_1 + \lambda w_1 \\
+2 \sum_{i=1}^{n} \sum_{j=1}^{n} \left( (a_i^\top w - b_j^\top w)(a_i - b_j) \right)_2 + \lambda w_2 \\
+\vdots \\
+2 \sum_{i=1}^{n} \sum_{j=1}^{n} \left( (a_i^\top w - b_j^\top w)(a_i - b_j) \right)_d + \lambda w_d \\
+\end{bmatrix}
+\]
+    }
+
+\end{enumerate}
+
+\section*{Problem 2: Complexity}
+When designing algorithms, it's useful to be able to do quick back-of-the-envelope
+calculations to see how much time or space an algorithm needs.
+Hopefully, you'll start to get more intuition for this by being exposed
+to different types of problems.
+
+\begin{enumerate}[label=\alph*.]
+    \item
+    Suppose we have an $n \times n$ grid of points, where we'd like to place $4$ arbitrary axis-aligned rectangles (i.e., the sides of the rectangle are parallel to the axes).
+    Each corner of each rectangle must be one of the points in the grid, but otherwise there are no constraints on the location or size of the rectangles. For example, it is possible for all four corners of a single rectangle to be the same point (resulting in a rectangle of size 0) or for all $4$ rectangles to be on top of each other.
+    How many possible ways are there to place $4$ rectangles on the grid?
+    In general, we only care about asymptotic complexity,
+    so give your answer in the form of $O(n^c)$ or $O(c^n)$ for some integer $c$.
+    
+    \note{It is unnecessary to consider whether order matters in this problem, since we are asking for asymptotic complexity. You are free to assume either in your solution, as it doesn’t change the final answer.}
+    
+    \expect{A big-O bound for the number of possible ways to place $4$ rectangles and some simple explanation/reasoning for the answer ($\sim$ 2 sentences).}
+    \mysolution{
+        For each rectangle, there are $n^2$ possible ways to choose its top-left corner and $n^2$ possible ways to choose its bottom-right corner. Since there are 4 rectangles, the total number of ways to place them is approximately $n^2 \cdot n^2 \cdot n^2 \cdot n^2 = n^8$.
+
+So, the asymptotic complexity of the number of possible ways is $O(n^8)$.
+    }
+    \item
+    Suppose we have an $n\times 3n$ grid of points.
+    We start in the upper-left corner (the point at position $(1,1)$), and we would like to reach the point at the lower-right corner
+    (the point at position $(n,3n)$) by taking single steps down or to the right.
+    Suppose we are provided with a function $c(i, j)$ that outputs the cost associated with position $(i, j)$, and assume it takes constant time to compute for each position.
+    Note that $c(i, j)$ can be negative.
+    Define the cost of a path as the sum of $c(i,j)$ for all points $(i,j)$ along the path, including both endpoints.
+    Give an algorithm for computing the cost of the minimum-cost path from $(1,1)$ to $(n,3n)$ in the most efficient way (with the smallest big-O time complexity).
+    What is the runtime (just give the big-O)?
+    
+    \expect{A description of the algorithm for computing the cost of the minimum-cost path as efficiently as possible ($\sim$ 5 sentences). The big-O runtime and a short explanation of how it arises from the algorithm.}
+    \mysolution{
+        we can solve this problem efficiently using dynamic programming. The key observation is that to reach any point \((i, j)\) in the \(n \times 3n\) grid, we can only come from either the cell above \((i-1, j)\) or the cell to the left \((i, j-1)\) because we can only move down or to the right. Therefore, we can compute the minimum cost to reach each cell by considering the minimum cost to reach its adjacent cells and adding the cost associated with the current cell.
+
+The runtime of this algorithm is \(O(n \cdot 3n) = O(n^2)\). This is because we need to iterate through all \(n\) rows and \(3n\) columns of the grid once to compute the minimum cost for each cell. Therefore, the big-O time complexity of this algorithm is \(O(n^2)\).
+    }
+\end{enumerate}
+
+\section*{Problem 3: Ethical Issue Spotting}
+One of the goals of this course is to teach you how to tackle real-world problems with tools from AI.  But real-world problems have real-world consequences. Along with technical skills, an important skill every practitioner of AI needs to develop is an awareness of the ethical issues associated with AI. The purpose of this exercise is to practice spotting potential ethical concerns in applications of AI - even seemingly innocuous ones. \\
+In this question, you will explore the ethics of four different real-world scenarios using the ethics guidelines produced by a machine learning research venue, the NeurIPS conference. The \underline{\href{https://neurips.cc/public/EthicsGuidelines}{NeurIPS Ethical Guidelines}} list sixteen non-exhaustive concerns under Potential Negative Social Impacts and General Ethical Conduct (the numbered lists). For each scenario, you will write a potential negative impacts statement. To do so, you will first determine if the algorithm / dataset / technique could have a potential negative
+social impact or violate general ethical conduct (again, the sixteen numbered items taken from the \underline{\href{https://neurips.cc/public/EthicsGuidelines}{NeurIPS Ethical Guidelines}} page). If the scenario does violate ethical conduct or has potential negative social impacts, list one concern it violates and justify why you think that concern applies to the scenario. If you do \textbf{not} think the scenario has an ethical concern, explain how you came to that decision. 
+Unlike earlier problems in the homework there are many possible good answers. If you can justify your answer, then you should feel confident that you have answered the question well. \\
+Each of the scenarios is drawn from a real AI research paper. The ethics of AI research closely mirror the potential real-world consequences of deploying AI, and the lessons you’ll draw from this exercise will certainly be applicable to deploying AI at scale. As a note, you are \textbf{not} required to read the original papers, but we have linked to them in case they might be useful. Furthermore, you are welcome to respond to anything in the linked article that's not mentioned in the written scenario, but the scenarios as described here should provide enough detail to find at least one concern.
+
+\expect{A 2-5 sentence paragraph for each of the scenarios where you either A. identify at least one ethical concern from the \underline{\href{https://neurips.cc/public/EthicsGuidelines}{NeurIPS Ethical Guidelines}} and justify why you think it applies, or B. state that you don’t think a concern exists and justify why that’s the case. Chosen scenarios may have anywhere from zero to multiple concerns that match, but you are only required to pick one concern (if it exists) and justify your decision accordingly. Furthermore, copy out and underline the ethical checklist item to which you are referring as part of your answer (i.e.: \underline{Severely damage the environment}). We have also included a citation in the example solution below, but you are not required to add citations to your response.} 
+
+\textbf{Example Scenario} \\
+You work for a U.S. hospital that has recently implemented a new intervention program that enrolls at-risk patients in programs to help address their chronic medical issues proactively before the patients end up in the hospital. The intervention program automatically identifies at-risk patients by predicting patients’ risk scores, which are measured in terms of healthcare costs. However, you notice that for a given risk score tier, the Black patients are considerably sicker when enrolled than white patients, even though their assigned illness risk score is identical. You manually re-assign patients’ risk scores based on their current symptoms and notice that the percentage of Black patients who would be enrolled has increased from 17\%  to over 45\% [1].
+
+\textbf{Example Solution} \\
+This algorithm has likely \underline{encoded, contains, or potentially exacerbates bias against people of a certain race or ethnicity} since the algorithm predicts healthcare costs. Because access to medical care in the U.S. is unequal, Black patients tend to have lower healthcare costs than their white counterparts [2]. Thus the algorithm will incorrectly predict that they are at lower risk. \\
+
+\begin{enumerate}[label=\alph*.]
+    \item
+   An investment firm develops a simple machine learning model to predict whether an individual is likely to default on a loan from a variety of factors, including location, age, credit score, and public record. After looking through their results, you find that the model predicts mainly based on location and that the model mainly accepts loans from urban centers and denies loans from rural applicants [3]. Furthermore, looking at the gender and ethnicity of the applicants, you find that the model has a significantly higher false positive rate for Black and male applicants than for other groups. In a false positive prediction, a model misclassifies someone who does not default as likely to default.
+
+    \mysolution{
+        This machine learning model raises concerns related to discrimination, fairness, and bias in outcomes, as it seems to favor urban applicants and unfairly penalizes Black and male applicants.
+    }
+    \item
+    Stylometry is a way of predicting the author of contested or anonymous text by analyzing the writing patterns in the anonymous text and other texts written by the potential authors. Recently, highly accurate machine learning algorithms have been developed for this task. While these models are typically used to analyze historical documents and literature, they could be used for deanonymizing a wide range of texts, including code [4].
+
+    \mysolution{
+        The ethical concern in this scenario pertains to the potential invasion of privacy and the lack of consent when using highly accurate stylometry algorithms to deanonymize text, which could have far-reaching implications for individuals' rights and safety.
+    }
+    \item
+    A research group scraped millions of faces of celebrities off of Google images to develop facial recognition technology [5]. The celebrities did not give permission for their images to be used in the dataset and many of the images are copyrighted. For copyrighted photos, the dataset provides URL links to the original image along with bounding boxes for the face.
+
+    \mysolution{
+       The ethical concerns in this scenario revolve around the lack of consent from celebrities, copyright infringement, and the unauthorized use of personal data to develop facial recognition technology, highlighting the need for ethical practices and respect for individuals' rights and privacy.
+    }
+    
+    \item
+    Researchers have recently created a machine learning model that can predict plant species automatically directly from a single photo [6]. The model was trained using photos uploaded to the iNaturalist app by users who consented to use of their photos for research purposes, and the model is only used within the app to help users identify plants they might come across in the wild.
+
+    \mysolution{
+        The ethical concern in this scenario is mainly about data security and privacy, emphasizing the importance of safeguarding user data, even when it is collected with consent for a specific research purpose.
+    }
+
+\end{enumerate}
+\end{document}

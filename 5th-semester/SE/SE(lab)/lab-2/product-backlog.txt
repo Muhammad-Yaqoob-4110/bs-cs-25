@@ -1,0 +1,15 @@
+1. User Registration: Users can create accounts to access the application.
+2. User Login: Users can log in to their accounts securely.
+3. Upload images: Users can upload pictures.
+4. Explore Photos: Users can explore photos on different catagories
+5. Search Pictures: Users can search specific catagories pictures
+6. CRUD Control: CRUD control to user
+7. CRUD Control: CRUD control to Admin
+8. Profiles: Users can see and edit thei Profiles.
+9. Like & Dislike: Users can Like & Dislike images
+10.Download facility: Users can download the image in different quality.
+11. List of famous Users: Users can see famous photographers list
+12. Hier: User can heired
+13. About Us: Users can read about us.
+14. Follow/Unfollow: Users can follow/unfollow each other.
+15. 

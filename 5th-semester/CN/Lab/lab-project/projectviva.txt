@@ -1,0 +1,129 @@
+CN Viva Preparation:
+
+1) Initially the company operates from HQ, now we have to open a branch, the network of this branch will operate separately from HQ i.e. it will be an autonomous system
+2) For devices in network to obtain IPv4 automatically we will use DHCP server
+3) 2911 Router, 2960 Switch
+4) all 3 departments have a PC and printer
+5) for wireless communication, we will now add 3 access points to each department, drag and drop
+
+Connection
+
+1) now connect all the devices with cables
+2) VLANS will be 10,20 & 30
+
+Subnetting & Configuration
+
+
+1) Base Network: 192.168.113.0
+2) subnets required = 3
+3) 2^n >= 3 (n = number of borrowed bits)
+   2^2 = 4 satisfies the condition as 4 >= 3
+4) Class  C address so  subnet mask: 255.255.255.0 -> in  binary: 11111111.11111111.11111111.00000000
+   after borrowing 2 bits now,
+   1111111.11111111.11111111.11000000
+   new subnet mask 255.255.255.192
+   subnet mask ends with 192, so block size is 64
+5) 1st Subnet:
+    network id: 192.168.113.0
+    broadcast id: 192.168.113.63
+    host range 192.168.113.1 - 192.168.113.62
+   2nd Subnet:
+    network id: 192.168.113.64
+    broadcast id: 192.168.113.127
+    host range 192.168.113.65 - 192.168.113.126
+   3rd Subnet:
+    network id: 192.168.113.128
+    broadcast id: 192.168.113.191
+    host range 192.168.113.129 - 192.168.113.190
+
+
+CONFIGURE VLANS
+
+Open Switch CLI
+Run: Conf t
+int range fa0/2-4
+switchport mode access
+switchport access vlan 10
+
+int range fa0/5-7
+switchport mode access
+switchport access vlan 20
+
+int range fa0/8-10
+switchport mode access
+switchport access vlan 30
+
+
+CONFIGURE ACCESS POINTS
+
+
+
+click AP, config, Port 1
+set SSID: Admin-WIFI
+authentication choose: WPA2-PSK
+in PSK Pass Phrase add: Admin@123
+
+in second access point do Finance-WIFI
+
+in third access point do CS-WIFI
+
+
+
+switch: switchport mode trunk
+router: confi t
+int gig0/0
+no shutdown
+
+
+
+
+
+
+
+INTER VLAN ROUTING
+
+
+
+first create sub interface
+router: int gig0/0.10
+encapsulation dot1Q 10
+ip address 192.168.113.1 255.255.255.192
+
+int gig0/0.20
+encapsulation dot1Q 20
+ip address 192.168.113.65 255.255.255.192
+
+int gig0/0.30
+encapsulation dot1Q 30
+ip address 192.168.113.129 255.255.255.192
+
+
+DHCP Server
+
+
+
+go to router
+
+router: service dhcp
+ip dhcp pool Admin-Pool
+network 192.168.113.0 255.255.255.192
+default-router 192.168.113.1
+dns-server 192.168.113.1
+domain-name: Admin.com
+
+ip dhcp pool Finance-Pool
+network 192.168.113.64 255.255.255.192
+default-router 192.168.113.65
+dns-server 192.168.113.65
+domain-name: Financ.com
+
+ip dhcp pool Customer-Pool
+network 192.168.113.128 255.255.255.192
+default-router 192.168.113.129
+dns-server 192.168.113......
+
+
+smartphone and laptop in all 3 departments
+go to phone 1, wireless 0, SSID - Admin-WIFI, WPA2-PSK- Admin@123
+go to laptop, turn it off, remove side port, add WPC300N, go to then Desktop from menu, Wireless PC then Connect then refresh, choose wifi network, enter password and connect
+
