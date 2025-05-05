@@ -1,0 +1,1 @@
+Pak Study (lec 1) was taught by Dr. Nadeem and Islamic Study (lec 2) was taught by Dr. Naeem Saif Ul Islam.

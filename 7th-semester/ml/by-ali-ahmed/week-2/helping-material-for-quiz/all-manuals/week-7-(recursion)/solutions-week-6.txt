@@ -1,0 +1,63 @@
+Task 2
+
+def fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+rang=int(input("Enter range "))
+for i in range(0,rang+1):
+    print(fibonacci(i))
+
+Task 3
+
+import random
+num=[]
+s=0
+for x in range (0,10):
+    a=random.randint(1,1000)
+    num.append(a)
+print(num)
+def sum(n,num):
+    if n==10:
+        return 0
+    else:
+        return num[n]+sum(n+1,num)
+y=sum(0,num)
+print(y)
+
+Task 4
+
+base=int(input("Enter Base "))
+exp=int(input("Enter power "))
+def cal(e):
+    if e<=0:
+        return 1
+    else:
+        return base*cal(e-1)
+print(cal(exp))
+
+Task 5
+
+name="Engr. Afeef Obaid Ullah Farooq"
+le=len(name)-1
+def rev(le,name):
+    if le==-1:
+        return "\nString is reversed"
+    else:
+        return name[le]+rev(le-1,name)
+print(rev(le,name))
+
+Task 6
+
+listi=[]
+list=[20,["apple","banana"],"Obaid",{"car","jeep"},"Afeef"]
+def check(n):
+    if n<0:
+        return
+    else:
+        if type(list[n])==str:
+            listi.append(list[n])
+        return check(n-1)
+p=len(list)-1
+check(p)

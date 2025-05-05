@@ -1,0 +1,15 @@
+Task 2
+
+fileptr=open("student.txt","w")
+roll=input("Enter roll numbers of student ")
+fileptr.write(roll+"\n")
+fileptr=open("student.txt","a")
+name=input("Enter names of student ")
+fileptr.write(name+"\n")
+fileptr=open("student.txt","r")
+line=fileptr.readline()
+rollno=line.split(",")
+for i in rollno:
+    att=input(f"Enter attendance of roll no. {i}")
+    fileptr = open("student.txt", "a")
+    fileptr.write(att+",")
