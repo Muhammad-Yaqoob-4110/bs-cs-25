@@ -1,0 +1,104 @@
+1. Which model of a DS is concerned with the placement of its parts & relationships b/w them.
+a) Physical Model 
+b) Architectural Model 
+c) Fundamental Model 
+d) All of these
+
+2. In. all of the processes involved in a task/activity play similar roles, interacting cooperatively as peers without any distinction b/w client & server processes.
+a) Peer-to-Peer 
+b) Client Server 
+c) Both 
+d) None of these
+
+3. The Caches may be co-located with each
+a) Browser 
+b) Server 
+c) Peer 
+d) Network
+
+
+4. The purpose of proxy servers is to increase the ____ and performance of the service by reducing the load on the WAN and web servers.
+a) Network threat
+c) Security
+b) Integrity
+d) Availability 
+
+
+5. ____are effectively a pattern imposed on an underlying message-passing service to support client-server computing. 
+a) Remote procedure calls 
+b) Remote method invocation
+c) Request-reply protocols 
+d) Remote invocation
+
+
+
+7. Which statement is not correct related to the layering. 
+a) Layering is closely related to abstraction
+b) parsitioned the complex system into a number of layers
+c) Make the system complex by dividing it into layers
+d) and c)
+
+8. Tiering is a technique to organize ___ of a given layer
+a) Functionality
+b) Working
+c) Security
+d) Reliability
+
+
+9. We moving complexity away from the end-user device towards services the Internet in: 
+a) Computer networks
+b) Distributed system
+c) layered systems
+d) All of these
+
+
+10. The ____ is a commonly recurring pattern in distributed systems designed particularly to support location transparency. 
+a) brokerage
+b) proxy pattern 
+c) Reflection
+d) Thin client
+
+
+11. A distributed system is a collection of independent computers that appear to the users of the system as: 
+a) a separate node
+b) a single computer
+c) multiple systems
+d) none of these
+
+
+12. ____ that determines whether the system can be extended and reimplemted in various ways.
+
+
+13. Security for information resources has three components ____, ____ & _____.
+
+14. Three services models offered by Cloud Computing are ____, ____ & ____.
+
+
+15. The HTTP request line contains a ____ method to request a document from the server.
+
+
+16. An applet is ____ document application program.
+
+
+
+17. HTTP uses the services of ____ on well-known port 80.
+
+
+18. In designing a parallel program, one has to break the problem into discrete chunks of work that can be distributed to multiple tasks. This is known as: 
+a) Decomposition 
+b) Partitioning 
+c) Compounding 
+d) Both a) and b)
+
+
+19. Parallel computing can include:
+a) Single computer with multiple processors
+b) Arbitrary number of computers connected by a network
+c) Combination of ooth a) and b)
+d) None of these
+
+20. Typical GPU operation can be expressed as: 
+a) MISD 
+b) SIMD
+c) MIMD 
+d) Single Program Multiple Data (SPMD)
