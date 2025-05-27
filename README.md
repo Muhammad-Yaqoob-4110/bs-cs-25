@@ -1,4 +1,4 @@
-## bs-cs-25
+## BS-CS'UET (2021-2025)
 This repo contains all the study material I collected during my Bachelor's degree of Computer Science. 
 
 It includes lecture notes, teacher's slides, recommended books, assignments, and other helpful resources. 
@@ -13,6 +13,7 @@ If you want to contribute more material:
 - Fork this repo
 - Add your files in the correct folder
 - Commit and push
+- Create an issue in my repo. 
 - Open a pull request
 Or feel free to reach out to suggest improvements or corrections.
 
