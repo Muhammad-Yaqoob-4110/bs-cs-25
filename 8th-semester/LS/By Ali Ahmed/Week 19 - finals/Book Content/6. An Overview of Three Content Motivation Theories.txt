@@ -1,0 +1,74 @@
+An Overview of Three Content Motivation Theories
+There is no single, universally accepted theory of how to motivate people, or how to classify the theories. We will discuss motivation theories and how you can use 
+them to motivate yourself and others. In the following sections, you will learn about content motivation theories, process motivation theories, and reinforcement 
+theory. See Exhibit 3.6 for this classification, which is commonly used, with a listing of major motivation theories you will learn.
+
+After studying all of the theories separately, we can put them back together using the unifying motivation process to see the relationship between the theories. You 
+can select one theory to use, or take from several to make your own theory, or apply the theory that best fits the specific situation.
+
+ Hierarchy of Needs Theory
+In the 1940s, Abraham Maslow developed his hierarchy of needs theory,45 which is based on four major assumptions: (1) Only unmet needs motivate. (2) People’s 
+needs are arranged in order of importance (hierarchy) going from basic to  complex needs. (3) People will not be motivated to satisfy a higher-level need unless the 
+lower-level need(s) has been at least minimally satisfied. (4) Maslow assumed that people have five classifications of needs, which are presented here in  hierarchical 
+order from low to high level of need.
+
+Hierarchy of Needs
+The hierarchy of needs theory proposes that people are motivated through five levels of needs—physiological, safety, belongingness, esteem, and self-actualization:
+1. Physiological needs: These are people’s primary or basic needs: air, food, shelter, 
+sex, and relief from or avoidance of pain.
+2. Safety needs: Once the physiological needs are met, the individual is concerned 
+with safety and security.
+3. Belongingness needs: After establishing safety, people look for love, friendship, acceptance, and affection. Belongingness is also called social needs.
+4. Esteem needs: After the social needs are met, the individual focuses on ego, status, self-respect, recognition for accomplishments, and a feeling of self-confidence 
+and prestige.
+5. Self-actualization needs: The highest level of need is to develop one’s full potential. To do so, one seeks growth, achievement, and advancement.
+
+Maslow’s hierarchy of needs is commonly taught in psychology and business courses,46 because it offers a very rich theory of human motivation and its determinants at the individual level.47 However, Maslow’s work was criticized because it did not take into consideration that people can be at different levels of needs based on different aspects of their lives. Nor did he mention that people can revert back to lower-level needs. Today, Maslow’s followers and others realize that needs are not on a simple five-step hierarchy. Maslow’s assumptions have recently been updated to reflect this insight, and many organizations today are using a variety of the management methods he proposed 30 years ago. Maslow has also been credited with influencing many management authors, including Douglas McGregor, Rensis Likert, and Peter Drucker.
+
+Motivating Employees with Hierarchy of Needs Theory
+The major recommendation to leaders is to meet employees’ lower-level needs so that they will not dominate the employees’ motivational process. You should get 
+to know and understand people’s needs and meet them as a means of increasing performance. It is important to build self-esteem.48 See Exhibit 3.7 for a list of ways in which managers attempt to meet these five needs.
+
+Two-Factor Theory
+In the 1960s, Frederick Herzberg published his two-factor theory.49 Herzberg combined lower-level needs into one classification he called hygiene or maintenance; and 
+higher-level needs into one classification he called motivators. The two-factor theory proposes that people are motivated by motivators rather than maintenance factors. Before you learn about two-factor theory, complete Self-Assessment 3.
+Maintenance—Extrinsic Factors
+Maintenance factors are also called extrinsic motivators because motivation comes from outside the person and the job itself. Extrinsic motivators include pay, job 
+security, and title; working conditions; fringe benefits; and relationships. These factors are related to meeting lower-level needs. Review Self-Assessment 3, the even numbered questions, for a list of extrinsic job factors.
+Motivators—Intrinsic Factors
+Motivators are called intrinsic motivators because motivation comes from within the person through the work itself. Intrinsic motivators include achievement, recogni
+tion, challenge, and advancement. These factors are related to meeting higher-level needs, and are better at motivating than extrinsic factors.50 Doing something we 
+want to do and doing it well can be its own reward. Review Self-Assessment 3, the odd-numbered questions, for a list of intrinsic job factors.
+
+Herzberg’s Two-Factor Motivation Model
+Herzberg and associates, based on research, disagreed with the traditional view that satisfaction and dissatisfaction were at opposite ends of one continuum (a one dimensional model). There are two continuums: not dissatisfied with the  environment (maintenance) to dissatisfied, and satisfied with the job itself  (motivators) to not satisfied (a two-dimensional model). See Exhibit 3.8 for Herzberg’s motivation model. Employees are on a continuum from dissatisfied to not  dissatisfied with 
+their  environment. Herzberg contends that providing maintenance  factors will keep employees from being dissatisfied, but it will not make them satisfied or motivate them. For example, Herzberg believes that if employees are dissatisfied with their pay and they get a raise, they will no longer be dissatisfied. However, before long people get accustomed to the new standard of living and will become dissatisfied again. Employees will need another raise to not be dissatisfied again. The vicious cycle goes on. So, Herzberg says you have to focus on  motivators—the job itself.
+
+Money as a Motivator
+The current view of money as a motivator is that money matters more to some people than others, and that it may motivate some employees. However, money does 
+not necessarily motivate employees to work harder. Have you ever gotten a raise? Were you more motivated and more productive? Money also is limited in its ability 
+to motivate. For example, many commissioned workers get to a comfortable point and don’t push to make extra money; and some employees get to the point where they don’t want overtime work, even though they are paid two or three times their normal wage for overtime.
+Research supports the statements that money alone just doesn’t buy much happiness,51 and what you have is never enough.52 When we get the promotion or pay raise or buy that new item (house, car, vacation, clothes, toy), we are happy for awhile, but it’s not long before we want something new.53 Money can buy things, but there are lots of rich and famous people who are unhappy and make poor choices as a result.
+But money is important.54 As Jack Welch says, you can’t just reward employees with trophies; you need to reward them in the wallet too. Employees often leave one organization for another to make more money. High compensation (pay and benefits) based on performance is a practice of successful organizations.55
+
+Motivating Employees with Two-Factor Theory
+Under the old management paradigm, money (and other extrinsic motivators) was considered the best motivator. Under the new leadership paradigm, pay is important, but it is not the best motivator; intrinsic motivators are. Herzberg’s theory has been criticized for having limited research support. However, current research does support that giving more responsibility increases motivation and performance.56 Herzberg fits the new paradigm: He says that managers must first ensure that the employees’ level of pay and other maintenance factors are adequate. Once employees are not dissatisfied with their pay (and other maintenance factors), they can be motivated through their jobs. Herzberg also developed job enrichment, the process of building motivators into the job itself by making it more interesting and 
+challenging. Job enrichment has been used successfully to motivate employees to higher levels of performance at many organizations, including AT&T, GM, IBM, Maytag, Monsanto, Motorola, Polaroid, and the Traveler’s Life Insurance Company. Current research does support the use of job design to motivate employees.57
+
+Acquired Needs Theory
+Acquired needs theory proposes that people are motivated by their need for achievement, power, and affiliation. This is essentially the same definition given for achievement motivation theory in Chapter 2. It is now called acquired needs theory because David McClelland was not the first to study these needs, and because other management writers call McClelland’s theory acquired needs theory. A general needs theory was developed by Henry Murray,58 then adapted by John Atkinson59 and David McClelland.60 You have already learned about McClelland’s work, so we will be brief here. It’s important to realize how closely linked traits, behavior, and motiva
+tion are. Acquired need is also widely classified as both a trait and a motivation, since McClelland and others believe that needs are based on personality traits. 
+McClelland’s affiliation need is essentially the same as Maslow’s belongingness need; and power and achievement are related to esteem, self-actualization, and 
+growth. McClelland’s motivation theory does not include lower-level needs for safety and physiological needs.
+
+Acquired needs theory says that all people have the need for achievement, power, and affiliation, but to varying degrees. There is some support, although 
+there are exceptions, stating that men tend to be more achievement oriented and women tend to be more relationship oriented.61 Here are some ideas for motivating 
+employees based on their dominant needs:
+• Motivating employees with a high n Ach. Give them nonroutine, challenging tasks with clear, attainable objectives. Give them fast and frequent feedback on their 
+performance. Continually give them increased responsibility for doing new things. Keep out of their way.
+• Motivating employees with a high n Pow. Let them plan and control their jobs as much as possible. Try to include them in decision making, especially when they 
+are affected by the decision. They tend to perform best alone rather than as team members. Try to assign them to a whole task rather than just part of a task.
+• Motivating employees with a high n Aff. Be sure to let them work as part of a team. They derive satisfaction from the people they work with rather than the task itself. Give them lots of praise and recognition. Delegate responsibility for orienting and training new employees to them. They make great buddies and mentors.
+
+
+

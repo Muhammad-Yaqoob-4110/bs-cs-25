@@ -1,0 +1,32 @@
+Normative Leadership Theory and Models
+An important leadership question today is, “When should the manager take charge and when should the manager let the group make the decision?” In 1973, Victor 
+Vroom and Philip Yetton published a decision-making model to answer this question while improving decision-making effectiveness.46 Vroom and Arthur Jago refined 
+the model and expanded it to four models in 1988. The four models are based on two factors: individual or group decisions and time-driven or development-driven 
+decisions.47
+In 2000, Victor Vroom published a revised version entitled “Leadership and the Decision-Making Process.” The current model is based on the research of Vroom and colleagues at Yale University on leadership and decision-making processes, with more than 100,000 managers making decisions.48 We present the latest version with 
+a focus on time- and development-driven decisions.
+The normative leadership model has a time-driven and development-driven decision tree that enables the user to select one of five leadership styles (decide, consult individually, consult group, facilitate, and delegate) appropriate for the situation (seven questions/variables) to maximize decisions. See Exhibit 5.8 to see how the normative leadership model fits into the contingency leadership framework variables. It is called a normative model because it provides a sequential set of questions that are rules (norms) to follow to determine the best leadership style for the given situation.
+
+EXHIBIT 5.8 Normative Leadership Model Variables Within the Contingency Leadership Framework
+FOLLOWERS 
+Development-Driven
+Decision Model
+ 2. Importance of commitment
+ 4. Likelihood of commitment
+ 5. Group support for objectives
+ 6. Group expertise
+ 7. Team competence
+
+LEADER
+ 3. Leader expertise
+ LEADERSHIP STYLES
+ Decide
+ Consult individually
+ Consult group
+ Facilitate
+ Delegate
+
+SITUATION
+Time-Driven
+Decision Model
+1. Decision significance

@@ -1,0 +1,26 @@
+Expectancy Theory
+
+Expectancy theory is based on Victor Vroom’s formula: motivation = expectancy ×  instrumentality × valence.72 Expectancy theory proposes that people are motivated when 
+they believe they can accomplish the task, they will get the reward, and the rewards for doing the task are worth the effort. The theory is based on the following assumptions: Both internal (needs) and external (environment) factors affect behavior; behavior is the individual’s decision; people have different needs, desires, and goals; and  people make behavior decisions based on their perception of the outcome. Expectancy theory continues to be popular in the motivation literature today.
+
+Three Variables
+All three variable conditions must be met in Vroom’s formula for motivation to take place:
+• Expectancy refers to the person’s perception of his or her ability (probability) to accomplish an objective. Generally, the higher one’s expectancy, the better the 
+chance for motivation. When employees do not believe that they can accomplish objectives, they will not be motivated to try.
+• Instrumentality refers to belief that the performance will result in getting the reward. Generally, the higher one’s instrumentality, the greater the chance for motivation. If employees are certain to get the reward, they probably will be motivated.74 When 
+not sure, employees may not be motivated. For example, Dan believes he would be a good manager and wants to get promoted. However, Dan has an external locus of control and believes that working hard will not result in a promotion anyway. Therefore, he will not be motivated to work for the promotion.
+• Valence refers to the value a person places on the outcome or reward. Generally, the higher the value (importance) of the outcome or reward, the better the chance of motivation.75 For example, the supervisor, Jean, wants an employee, Sim, to work harder. Jean talks to Sim and tells him that working hard will result in a promotion. If Sim wants a promotion, he will probably be motivated. However, if a promotion is not of importance to Sim, it will not motivate him.
+
+Motivating with Expectancy Theory
+One study found that expectancy theory can accurately predict a person’s work effort, satisfaction level, and performance—but only if the correct values are plugged into the formula. A meta-analysis (a study using the data of 77 other prior studies) had inconsistent findings with some positive correlations. A more recent 
+study found that expectancy theory can be used to determine if leaders can be trained to use ethical considerations in decision making.76
+
+Therefore, this theory works in certain contexts but not in others. Expectancy theory also works best with employees who have an internal locus of control, 
+because if they believe they control their destiny, their efforts will result in success. 
+
+The following conditions should be implemented to make the theory result in motivation:
+1. Clearly define objectives and the performance necessary to achieve them.
+2. Tie performance to rewards. High performance should be rewarded. When one employee works harder to produce more than other employees and is not rewarded, he or she may slow down productivity.
+3. Be sure rewards are of value to the employee. Managers should get to know employees as individuals. Develop good human relations as a people developer.
+4. Make sure your employees believe you will do what you say you will do. For example, employees must believe you will give them a merit raise if they do work hard. So that employees will believe you, follow through and show them you do what you say you’ll do.
+5. Use the Pygmalion effect (Chapter 2) to increase expectations. Your high expectation can result in follower self-fulfilling prophecy. As the level of expectation increases, so will performance.

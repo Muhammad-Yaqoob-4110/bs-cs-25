@@ -1,0 +1,36 @@
+Leadership Styles
+Based on the situational factors in the path-goal model, the leader can select the most appropriate leadership style by using the following general guidelines for each 
+style. The original model included only the directive (based on initiating structure, job-centered style) and supportive (based on consideration and employee style) 
+leadership styles (from the Ohio State and University of Michigan behavioral leadership studies). The participative and achievement-oriented leadership styles were added in a 1974 publication by House and Mitchell.
+
+Directive
+The leader provides high structure. Directive leadership is appropriate when the followers want authority leadership, have external locus of control, and the follower 
+ability is low. Directive leadership is also appropriate when the environmental task is complex or ambiguous, formal authority is strong, and the work group provides 
+job satisfaction.
+
+Supportive
+The leader provides high consideration. Supportive leadership is appropriate when the followers do not want autocratic leadership, have internal locus of control, and 
+follower ability is high. Supportive leadership is also appropriate when the environmental tasks are simple, formal authority is weak, and the work group does not 
+provide job satisfaction.
+
+Participative
+The leader includes employee input into decision making. Participative leadership is appropriate when followers want to be involved, have internal locus of control, 
+and follower ability is high; when the environmental task is complex, authority is either strong or weak, and job satisfaction from coworkers is either high or low.
+
+Achievement-Oriented
+The leader sets difficult but achievable goals, expects followers to perform at their highest level, and rewards them for doing so. In essence, the leader provides both high directive (structure) and high supportive (consideration) behavior. Achievementoriented leadership is appropriate when followers are open to autocratic leadership, have external locus of control, and follower ability is high; when the environmental task is simple, authority is strong, and job satisfaction from coworkers is either high or low.
+
+Research
+A meta-analysis based on 120 studies examined directive and supportive behavior and showed that support for path-goal theory was significantly greater than chance, 
+but results were quite mixed. An extensive review of the research on moderator variables in leaders also had inconclusive findings.43 Recent reviews of the history of path-goal theory have concluded that it has not been adequately tested, possibly  because it is such a complex model. It continues to be tested; a recent study used a 
+survey of 1,000 respondents from a governmental and public auditing sample.44
+Although path-goal theory is more complex and specific than leadership continuum, it is also criticized by managers because it is difficult to know which style to use 
+when. As you can see, there are many situations in which not all six situational factors are exactly as presented in the guidelines for when to use the style. Judgment 
+calls are required to select the appropriate style as necessary.
+Despite its limitations, the path-goal model has already made an important contribution to the study of leadership by providing a conceptual framework to guide researchers in identifying potentially relevant situational variables. It also provides a useful way for leaders to think about motivating followers.
+
+Charismatic Leadership and Value-Based Leadership Theory
+Path-goal leadership theory led to the development of the theory of charismatic leadership in 1976. You will learn about charismatic leadership in Chapter 9. Path
+goal theory was considerably broadened in scope, and in 1996 House referred to it as value-based leadership theory.45 Because value-based leadership theory is new 
+and relatively untested, we do not present it here. However, see note 45 for House’s further-developed theory.
+You will determine your path-goal leadership style in Self-Assessment 4 on page 185, which puts together the contingency leadership styles.
